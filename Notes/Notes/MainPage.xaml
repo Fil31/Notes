@@ -1,0 +1,30 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notes.MainPage"
+             Title="Заметки">
+    <StackLayout>
+        <Button Text="Добавить заметку"
+                Command="{Binding AddNoteCommand}" />
+        <ListView ItemsSource="{Binding Notes}"
+                  SelectedItem="{Binding Path=BindingContext.SelectedItem, Source={x:Reference Name=NotesListView}}"
+                  x:Name="NotesListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Title}"
+                                   VerticalOptions="Center" />
+                            <Button Text="Редактировать"
+                                    Command="{Binding Path=BindingContext.EditNoteCommand, Source={x:Reference Name=NotesListView}}"
+                                    CommandParameter="{Binding .}"
+                                    HorizontalOptions="EndAndExpand" />
+                            <Button Text="Удалить"
+                                    Command="{Binding Path=BindingContext.DeleteNoteCommand, Source={x:Reference Name=NotesListView}}"
+                                    CommandParameter="{Binding .}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

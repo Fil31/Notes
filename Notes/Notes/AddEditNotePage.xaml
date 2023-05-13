@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notes.AddEditNotePage">
+    <StackLayout Margin="20">
+        <Label Text="Заголовок" />
+        <Entry x:Name="TitleEntry" />
+
+        <Label Text="Содержание" />
+        <Editor x:Name="ContentEditor" />
+
+        <Button Text="Сохранить"
+                Clicked="OnSaveClicked" />
+    </StackLayout>
+</ContentPage>
